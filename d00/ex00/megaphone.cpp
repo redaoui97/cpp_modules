@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 21:14:34 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/27 21:58:09 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/29 11:53:27 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 std::string upper(std::string input)
 {
-	int	i;
-	
 	std::string	res;
-
+	int			i;
+	
 	for (i = 0; i < (int)input.length(); i++)
 		res += std::toupper(input[i]);
 	return (res);
@@ -27,7 +26,6 @@ int main(int argc, char **argv)
 {
 	int	i;
 	
-	(void)argv;
 	if (argc == 1)
 	{
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;

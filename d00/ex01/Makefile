@@ -6,7 +6,7 @@
 #    By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/26 11:49:56 by rnabil            #+#    #+#              #
-#    Updated: 2023/05/27 22:03:03 by rnabil           ###   ########.fr        #
+#    Updated: 2023/05/29 19:07:21 by rnabil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 HEADER	= $(wildcard *.hpp)
 
-MAIN	= phonebook
+MAIN	= PhoneBook Contact main
 
 SRC		= $(MAIN:=.cpp)
 OBJ		= $(MAIN:=.o)
@@ -28,7 +28,7 @@ $(NAME): $(OBJ) $(HEADER)
 	$(CC) $(FLAGS) $(OBJ) -o $@
 
 %.o: %.cpp $(HEADER)
-	$(CC) $(HEADER) $(FLAGS) -c $< -o $@
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
 	@rm -f $(OBJ)
