@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 18:38:55 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/29 19:54:56 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/30 15:45:48 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,10 @@ class Contact
         std::string m_lastName;
         std::string m_phoneNumber;
         std::string m_darkestSecret;
-
     public:
         Contact();
         ~Contact();
         void    printInfos();
         void    setInfos();
-        
-}
-
+};
 #endif
