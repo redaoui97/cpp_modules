@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 18:38:57 by rnabil            #+#    #+#             */
-/*   Updated: 2023/06/03 21:19:46 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/06/04 00:48:37 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,14 @@
 
 PhoneBook::PhoneBook()
 {
-    
+    size_t  i;
+
+    i = 0;
+    while (i < 8)
+    {
+        (this->m_contacts)[i].setInfos(std::to_string(i), NULL, NULL, NULL, NULL, NULL);
+        i++;
+    }
 }
 
 PhoneBook::~PhoneBook()
@@ -22,44 +29,43 @@ PhoneBook::~PhoneBook()
     
 }
 
-static int checkFirstName(std::string firstName)
+static int checkFirstName(std::string firstName, Contact *contact)
 {
-	(void)firstName;
-	std::cout << "checked first name" << std::endl;
+	contact->setInfos(NULL, firstName, NULL, NULL, NULL, NULL);
     return (SUCCESS);
 }
 
-static int checkLastName(std::string lastName)
+static int checkLastName(std::string lastName, Contact *contact)
 {
 	(void)lastName;
-	std::cout << "checked last name" << std::endl;
+    (void)contact;
     return (SUCCESS);   
 }
 
-static int	checkNickname(std::string nickname)
+static int	checkNickname(std::string nickname, Contact *contact)
 {
 	(void)nickname;
-	std::cout << "checked nickname" << std::endl;
+    (void)contact;
 	return (SUCCESS);	
 }
 
-static int	checkPhoneNumber(std::string phoneNumber)
+static int	checkPhoneNumber(std::string phoneNumber, Contact *contact)
 {
 	(void)phoneNumber;
-	std::cout << "checked phone number" << std::endl;
+    (void)contact;
 	return (SUCCESS);
 }
 
-static int	checkDarkestSecret(std::string darkestSecret)
+static int	checkDarkestSecret(std::string darkestSecret, Contact *contact)
 {
 	(void)darkestSecret;
-	std::cout << "checked darkest secret" << std::endl;
+    (void)contact;
 	return (SUCCESS);
 }
 
 void    PhoneBook::AddContact()
 {
-    int (*FunctionArray[])(std::string) = {checkFirstName, checkLastName, checkNickname, checkPhoneNumber, checkDarkestSecret, NULL};
+    int (*FunctionArray[])(std::string, Contact*) = {checkFirstName, checkLastName, checkNickname, checkPhoneNumber, checkDarkestSecret, NULL};
     std::string infos[] = {"first name", "last name", "nickname", "phone number", "darkest secret"};
     std::string buffer;
     size_t      i;
@@ -67,10 +73,13 @@ void    PhoneBook::AddContact()
     for (i = 0; i < (sizeof(infos)/sizeof(std::string));)
     {
         std::cout << "enter the " << infos[i] << ":" << std::endl;
-        std::cin  >> buffer;
-        if (FunctionArray[i](buffer) == SUCCESS)
+        std::getline(std::cin, buffer);
+        if (FunctionArray[i](buffer, &(this->m_contacts[i])) == SUCCESS)
+        {
 			i++;
+        }
     }
+    this->m_contacts->printData();
 }
 
 Contact    *PhoneBook::SearchContact()
@@ -81,6 +90,7 @@ Contact    *PhoneBook::SearchContact()
 
 void    PhoneBook::FreeAndExit()
 {
+    std::cout << "Thank you for using phonebook hh" << std::endl;
     exit(0);
 }
 
