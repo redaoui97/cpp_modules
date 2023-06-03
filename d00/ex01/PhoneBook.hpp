@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 18:38:59 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/30 16:29:38 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/06/03 19:43:45 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <iostream>
 #include "Contact.hpp"
 #define MAX_CONTACTS 8
+#define SUCCESS 0
+#define FAILURE 1
 
 class   PhoneBook
 {
@@ -26,9 +28,9 @@ class   PhoneBook
     public:
         PhoneBook();
         ~PhoneBook();
-        Contact *SearchContact();
-        void    PrintContacts();
         void    AddContact();
         void    FreeAndExit();
+        void    PrintContacts();
+        Contact *SearchContact();
 };
 #endif

@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 18:38:57 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/30 16:54:22 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/06/03 19:43:09 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,47 @@ PhoneBook::PhoneBook()
     
 }
 
-PhoneBook::PhoneBook()
+PhoneBook::~PhoneBook()
 {
     
 }
 
-void    AddContact()
+int checkFirstName(std::string firstName)
 {
-    std::string infos[] = {"First name", "last name", "nickname", "phone number", "darkest secret"};
-    int         i;
+    return (SUCCESS);
+}
+
+int checkLastName(std::string lastName)
+{
+    return ();   
+}
+
+
+void    PhoneBook::AddContact()
+{
+    std::string infos[] = {"first name", "last name", "nickname", "phone number", "darkest secret"};
+    std::string buffer;
+    void (*FunctionArray[])() = {};
+    size_t          i;
     
     i = 0;
-    for (i = 0; i < infos->size(); i++)
+    for (i = 0; i < (sizeof(infos)/sizeof(std::string));)
     {
-        std::cout << infos[i] << std::endl;
+        std::cout << "enter the " << infos[i] << ":" << std::endl;
+        std::cin  >> buffer;
+        if (!buffer.empty())
+            i++;
     }
 }
+
+Contact    *PhoneBook::SearchContact()
+{
+    std::cout << "disabled for now hh" <<std::endl;
+    return (NULL);
+}
+
+void    PhoneBook::FreeAndExit()
+{
+    exit(0);
+}
+
