@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 18:38:57 by rnabil            #+#    #+#             */
-/*   Updated: 2023/06/05 12:40:44 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/06/05 15:14:14 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static int	checkDarkestSecret(std::string darkestSecret, Contact *contact)
 	return (SUCCESS);
 }
 
-static int	SelectContact()
+int	PhoneBook::SelectContact()
 {
 	int			res;
 	std::string	buffer;
@@ -84,13 +84,15 @@ static int	SelectContact()
 		std::cout << "Choose a contact :";
     	std::getline(std::cin, buffer);
 		if (std::cin.eof())
-		exit(0);
+		    this->FreeAndExit();
+        if (buffer == "stop")
+            return (-1);
 		if (std::isdigit(buffer[0]) && (buffer.length() == 1))
-			if (buffer[0] - '0' >= 0 && buffer[0] - '0' < 7)
-				break;
+			if (buffer[0] - '0' >= 0 && buffer[0] - '0' <= 7)
+                if ((buffer[0] - '0') < this->m_contactNumber)
+				    break;
 	}
 	res = buffer[0] - '0';
-	std::cout << "hh" << std::endl;
 	return (res);
 }
 /*End static functions*/
@@ -126,7 +128,7 @@ void    PhoneBook::AddContact()
         std::cout << "enter the " << infos[i] << ": ";
         std::getline(std::cin, buffer);
         if (std::cin.eof())
-            FreeAndExit();
+            this->FreeAndExit();
         if ((FunctionArray[i](buffer, currentContact)) == SUCCESS)
 			i++;
         else
@@ -152,7 +154,9 @@ void    PhoneBook::SearchContact()
     	std::cout << " ===================================================" << std::endl;
 		i++;
 	}
-	selectedContact = SelectContact();
+	if ((selectedContact = SelectContact()) == -1)
+        return ;
+    (this->m_contacts)[selectedContact].PrintAllData();
 }
 
 void    PhoneBook::FreeAndExit()

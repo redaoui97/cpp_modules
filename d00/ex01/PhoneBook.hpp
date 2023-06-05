@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 18:38:59 by rnabil            #+#    #+#             */
-/*   Updated: 2023/06/05 11:17:52 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/06/05 14:57:10 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class   PhoneBook
         void    FreeAndExit();
         void    PrintContacts();
         void    SearchContact();
+        int	    SelectContact();
         int     SetCurrentContact();
 };
 #endif

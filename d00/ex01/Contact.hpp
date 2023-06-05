@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 18:38:55 by rnabil            #+#    #+#             */
-/*   Updated: 2023/06/05 09:29:08 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/06/05 14:53:42 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class Contact
         Contact();
         ~Contact();
         void    printData();
+        void    PrintAllData();
         void    setInfos(std::string id, std::string nickname, std::string firstName, std::string lastName, std::string phoneNumber, std::string darkestSecret);
 };
 #endif

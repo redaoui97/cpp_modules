@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 18:38:46 by rnabil            #+#    #+#             */
-/*   Updated: 2023/06/05 12:03:23 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/06/05 15:15:25 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,14 @@ void    Contact::printData()
     std::cout << "| " << FixString(this->m_firstName);
     std::cout << "| " << FixString(this->m_lastName);
     std::cout << "| " << FixString(this->m_nickname) << "|" << std::endl;
+}
+
+void    Contact::PrintAllData()
+{
+    std::cout << "-id: " << this->m_id << std::endl;
+    std::cout << "-First name: " << this->m_firstName << std::endl;
+    std::cout << "-Last name: " << this->m_lastName << std::endl;
+    std::cout << "-Nickname: " << this->m_nickname << std::endl;
+    std::cout << "-Phone number: " << this->m_phoneNumber << std::endl;
+    std::cout << "-Darkest secret:" << this->m_darkestSecret << std::endl;
 }
