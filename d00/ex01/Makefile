@@ -6,13 +6,13 @@
 #    By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/26 11:49:56 by rnabil            #+#    #+#              #
-#    Updated: 2023/05/29 19:07:21 by rnabil           ###   ########.fr        #
+#    Updated: 2023/06/05 09:46:10 by rnabil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= phonebook
 CC		= c++
-FLAGS	= -Wall -Wextra -Werror -std=c++98
+FLAGS	= -Wall -Wextra -Werror -g -std=c++98
 HEADER	= $(wildcard *.hpp)
 
 MAIN	= PhoneBook Contact main

@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 18:38:59 by rnabil            #+#    #+#             */
-/*   Updated: 2023/06/03 19:43:45 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/06/05 11:17:52 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ class   PhoneBook
     private:
         Contact m_contacts[MAX_CONTACTS];
         Contact *m_firstContact;
+        int     m_availableContactIndex;
+        int     m_contactNumber;
         
     public:
         PhoneBook();
@@ -31,6 +33,7 @@ class   PhoneBook
         void    AddContact();
         void    FreeAndExit();
         void    PrintContacts();
-        Contact *SearchContact();
+        void    SearchContact();
+        int     SetCurrentContact();
 };
 #endif

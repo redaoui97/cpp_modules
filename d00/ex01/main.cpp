@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 18:54:16 by rnabil            #+#    #+#             */
-/*   Updated: 2023/06/03 22:59:34 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/06/05 10:57:57 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,10 @@ int main(void)
     print_header();
     while(69)
     {
-        std::cout << "Enter a command:";
+        std::cout << "**Enter a command: ";
         std::getline(std::cin, buffer);
+        if (std::cin.eof())
+            exit(0);
         if (buffer == "ADD")
             book.AddContact();
         else if(buffer == "SEARCH")

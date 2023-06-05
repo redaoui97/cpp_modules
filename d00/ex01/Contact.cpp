@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 18:38:46 by rnabil            #+#    #+#             */
-/*   Updated: 2023/06/04 00:50:13 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/06/05 12:03:23 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Contact::~Contact()
     
 }
  
-void    Contact::setInfos(std::string id, std::string nickname, std::string firstName, std::string lastName, std::string phoneNumber, std::string darkestSecret)
+void    Contact::setInfos(std::string id, std::string firstName, std::string lastName, std::string nickname, std::string phoneNumber, std::string darkestSecret)
 {
     if (!id.empty())
         this->m_id = id;
@@ -38,22 +38,39 @@ void    Contact::setInfos(std::string id, std::string nickname, std::string firs
         this->m_darkestSecret = darkestSecret;
 }
 
-void    Contact::fetchData(std::string *id, std::string *firstName, std::string *lastName, std::string *darkestSecret, std::string *nickname, std::string *phoneNumber)
+static std::string FixString(std::string str)
 {
-    *id = this->m_id;
-    *firstName = this->m_firstName;
-    *lastName = this->m_lastName;
-    *nickname = this->m_nickname;
-    *phoneNumber = this->m_phoneNumber;
-    *darkestSecret = this->m_darkestSecret;
+    std::string res;
+    size_t      i;
+    
+    i = 0;
+    res += ' ';
+    if (str.length() == 10)
+    {
+        res = str;
+        res += ' ';
+    }
+    else if (str.length() > 10)
+    {
+        res = str.substr(0,10);
+        res += '.';
+    }
+    else
+    {
+        while (i < (10 -str.length()))
+        {
+            res += ' ';
+            i++;  
+        }
+        res += str;
+    }
+    return (res);
 }
 
 void    Contact::printData()
 {
-    std::cout << this->m_id << std::endl;
-    std::cout << this->m_firstName << std::endl;
-    std::cout << this->m_lastName << std::endl;
-    std::cout << this->m_phoneNumber << std::endl;
-    std::cout << this->m_nickname << std::endl;
-    std::cout << this->m_darkestSecret << std::endl;
+    std::cout << "| " << FixString(this->m_id);
+    std::cout << "| " << FixString(this->m_firstName);
+    std::cout << "| " << FixString(this->m_lastName);
+    std::cout << "| " << FixString(this->m_nickname) << "|" << std::endl;
 }

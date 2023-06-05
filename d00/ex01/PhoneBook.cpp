@@ -6,22 +6,25 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 18:38:57 by rnabil            #+#    #+#             */
-/*   Updated: 2023/06/04 00:48:37 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/06/05 12:40:44 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
+/*Constructors~Destructors*/
 PhoneBook::PhoneBook()
 {
     size_t  i;
 
     i = 0;
-    while (i < 8)
+    while (i < MAX_CONTACTS)
     {
-        (this->m_contacts)[i].setInfos(std::to_string(i), NULL, NULL, NULL, NULL, NULL);
+        (this->m_contacts)[i].setInfos(std::to_string(i), "", "", "", "", "");
         i++;
     }
+    this->m_availableContactIndex = 0;
+	this->m_contactNumber = 0;
 }
 
 PhoneBook::~PhoneBook()
@@ -29,68 +32,132 @@ PhoneBook::~PhoneBook()
     
 }
 
+/*Methods*/
+/*Check and static functions*/
 static int checkFirstName(std::string firstName, Contact *contact)
 {
-	contact->setInfos(NULL, firstName, NULL, NULL, NULL, NULL);
+    if (firstName.empty())
+        return (FAILURE);
+	contact->setInfos("", firstName, "", "", "", "");
     return (SUCCESS);
 }
 
 static int checkLastName(std::string lastName, Contact *contact)
 {
-	(void)lastName;
-    (void)contact;
+    if (lastName.empty())
+        return (FAILURE);
+    contact->setInfos("", "", lastName, "", "", "");
     return (SUCCESS);   
 }
 
 static int	checkNickname(std::string nickname, Contact *contact)
 {
-	(void)nickname;
-    (void)contact;
+    if (nickname.empty())
+        return (FAILURE);
+	contact->setInfos("", "", "", nickname, "", "");
 	return (SUCCESS);	
 }
 
 static int	checkPhoneNumber(std::string phoneNumber, Contact *contact)
 {
-	(void)phoneNumber;
-    (void)contact;
+    if (phoneNumber.empty())
+        return (FAILURE);
+	contact->setInfos("", "", "", "", phoneNumber, "");
 	return (SUCCESS);
 }
 
 static int	checkDarkestSecret(std::string darkestSecret, Contact *contact)
 {
-	(void)darkestSecret;
-    (void)contact;
+    if (darkestSecret.empty())
+        return (FAILURE);
+	contact->setInfos("", "", "", "", "", darkestSecret);
 	return (SUCCESS);
 }
 
+static int	SelectContact()
+{
+	int			res;
+	std::string	buffer;
+
+	while (69)
+	{
+		std::cout << "Choose a contact :";
+    	std::getline(std::cin, buffer);
+		if (std::cin.eof())
+		exit(0);
+		if (std::isdigit(buffer[0]) && (buffer.length() == 1))
+			if (buffer[0] - '0' >= 0 && buffer[0] - '0' < 7)
+				break;
+	}
+	res = buffer[0] - '0';
+	std::cout << "hh" << std::endl;
+	return (res);
+}
+/*End static functions*/
+
+/*Non static and non main functions*/
+int PhoneBook::SetCurrentContact()
+{
+    int availableContactIndex;
+    
+    availableContactIndex = this->m_availableContactIndex;
+    if (this->m_availableContactIndex == 7)
+        this->m_availableContactIndex = 0;
+    else
+        this->m_availableContactIndex += 1;
+    return (availableContactIndex);
+}
+/*End non static non main functions*/
+
+/*Main functions */
 void    PhoneBook::AddContact()
 {
     int (*FunctionArray[])(std::string, Contact*) = {checkFirstName, checkLastName, checkNickname, checkPhoneNumber, checkDarkestSecret, NULL};
     std::string infos[] = {"first name", "last name", "nickname", "phone number", "darkest secret"};
     std::string buffer;
+    Contact     *currentContact;
     size_t      i;
     
-    for (i = 0; i < (sizeof(infos)/sizeof(std::string));)
+    i = 0;
+    currentContact = &(this->m_contacts)[SetCurrentContact()];
+    std::cout << "===========================" << std::endl;
+    while(i < (sizeof(infos)/sizeof(std::string)))
     {
-        std::cout << "enter the " << infos[i] << ":" << std::endl;
+        std::cout << "enter the " << infos[i] << ": ";
         std::getline(std::cin, buffer);
-        if (FunctionArray[i](buffer, &(this->m_contacts[i])) == SUCCESS)
-        {
+        if (std::cin.eof())
+            FreeAndExit();
+        if ((FunctionArray[i](buffer, currentContact)) == SUCCESS)
 			i++;
-        }
+        else
+            std::cout << "Error setting up " << infos[i] << std::endl;
     }
-    this->m_contacts->printData();
+	this->m_contactNumber++;
+    std::cout << "Contact added successfully!" << std::endl;
+    std::cout << "===========================" << std::endl;
 }
 
-Contact    *PhoneBook::SearchContact()
+void    PhoneBook::SearchContact()
 {
-    std::cout << "disabled for now hh" <<std::endl;
-    return (NULL);
+    int		i;
+	int		selectedContact;
+	
+    std::cout << " ===================================================" << std::endl;
+    std::cout << "|    Index   | First Name | Last Name  |  Nickname  |" << std::endl;
+    std::cout << "|------------|------------|------------|------------|" << std::endl;
+	i = 0;
+	while (i < this->m_contactNumber && i < MAX_CONTACTS)
+	{
+		(this->m_contacts)[i].printData();	
+    	std::cout << " ===================================================" << std::endl;
+		i++;
+	}
+	selectedContact = SelectContact();
 }
 
 void    PhoneBook::FreeAndExit()
 {
-    std::cout << "Thank you for using phonebook hh" << std::endl;
+    std::cout << "Thank you for using our shitty phonebook hh" << std::endl;
     exit(0);
 }
 
