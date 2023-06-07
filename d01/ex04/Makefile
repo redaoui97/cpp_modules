@@ -5,17 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/06/05 18:22:01 by rnabil            #+#    #+#              #
-#    Updated: 2023/06/07 10:28:01 by rnabil           ###   ########.fr        #
+#    Created: 2023/06/07 13:42:33 by rnabil            #+#    #+#              #
+#    Updated: 2023/06/07 16:02:49 by rnabil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= BraiiiiiiinnnzzzZ
+NAME	= Sed_is_for_losers
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 HEADER	= $(wildcard *.hpp)
 
-MAIN	= main Zombie newZombie randomChump
+MAIN	= main 
 
 SRC		= $(MAIN:=.cpp)
 OBJ		= $(MAIN:=.o)

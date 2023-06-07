@@ -1,29 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 12:05:31 by rnabil            #+#    #+#             */
-/*   Updated: 2023/06/07 13:29:53 by rnabil           ###   ########.fr       */
+/*   Created: 2023/06/07 10:41:08 by rnabil            #+#    #+#             */
+/*   Updated: 2023/06/07 11:27:21 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
+#include "Zombie.hpp"
 
-/*Constructors(parametrized) and deconstructor*/
-HumanA::HumanA(std::string name, Weapon& weapon) : m_name(name), m_weapon(weapon)
+/*Constructors(default; parameterized) - Deconstructor*/
+Zombie::Zombie()
 {
     
 }
 
-HumanA::~HumanA()
+Zombie::Zombie(std::string name)
 {
-    
+    this->m_name = name; 
 }
 
-void    HumanA::attack()
+Zombie::~Zombie()
 {
-    std::cout << this->m_name << " attackes with their " << this->m_weapon.getType() << std::endl;
+    std::cout << this->m_name << " down!" << std::endl;
+}
+
+/*Member methods*/
+void    Zombie::announce()
+{
+    std::cout << this->m_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+void    Zombie::setName(std::string name)
+{
+    this->m_name = name;
 }

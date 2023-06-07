@@ -5,17 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/06/05 18:22:01 by rnabil            #+#    #+#              #
-#    Updated: 2023/06/07 10:28:01 by rnabil           ###   ########.fr        #
+#    Created: 2023/06/07 11:35:02 by rnabil            #+#    #+#              #
+#    Updated: 2023/06/07 11:35:34 by rnabil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= BraiiiiiiinnnzzzZ
+NAME	= HI_THIS_IS_BRAIN
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 HEADER	= $(wildcard *.hpp)
 
-MAIN	= main Zombie newZombie randomChump
+MAIN	= main 
 
 SRC		= $(MAIN:=.cpp)
 OBJ		= $(MAIN:=.o)

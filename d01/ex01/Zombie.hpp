@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 12:05:31 by rnabil            #+#    #+#             */
-/*   Updated: 2023/06/07 13:29:53 by rnabil           ###   ########.fr       */
+/*   Created: 2023/06/07 10:41:12 by rnabil            #+#    #+#             */
+/*   Updated: 2023/06/07 11:25:34 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-/*Constructors(parametrized) and deconstructor*/
-HumanA::HumanA(std::string name, Weapon& weapon) : m_name(name), m_weapon(weapon)
-{
-    
-}
+#include <iostream>
 
-HumanA::~HumanA()
+class Zombie
 {
-    
-}
+    private:
+        std::string m_name;
+        
+    public:
+        Zombie();
+        Zombie(std::string name);
+        ~Zombie();
+        void    announce();
+        void    setName(std::string name);
+};
 
-void    HumanA::attack()
-{
-    std::cout << this->m_name << " attackes with their " << this->m_weapon.getType() << std::endl;
-}
+Zombie* zombieHorde( int N, std::string name );
+
+#endif

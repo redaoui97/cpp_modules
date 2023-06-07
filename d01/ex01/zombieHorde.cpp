@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 12:05:31 by rnabil            #+#    #+#             */
-/*   Updated: 2023/06/07 13:29:53 by rnabil           ###   ########.fr       */
+/*   Created: 2023/06/07 10:44:07 by rnabil            #+#    #+#             */
+/*   Updated: 2023/06/07 11:32:19 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
+#include "Zombie.hpp"
 
-/*Constructors(parametrized) and deconstructor*/
-HumanA::HumanA(std::string name, Weapon& weapon) : m_name(name), m_weapon(weapon)
+Zombie* zombieHorde(int N, std::string name)
 {
+    int         i;
+    Zombie      *zombieArray;
+    std::string sheet;
     
-}
-
-HumanA::~HumanA()
-{
-    
-}
-
-void    HumanA::attack()
-{
-    std::cout << this->m_name << " attackes with their " << this->m_weapon.getType() << std::endl;
+    i = 0;
+    zombieArray = new Zombie[N];
+    while (i < N)
+    {
+        sheet = name + std::to_string(i + 1);
+        zombieArray[i].setName(sheet);
+        i++;
+    }
+    return (zombieArray);
 }

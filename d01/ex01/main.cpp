@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 12:05:31 by rnabil            #+#    #+#             */
-/*   Updated: 2023/06/07 13:29:53 by rnabil           ###   ########.fr       */
+/*   Created: 2023/06/07 10:59:23 by rnabil            #+#    #+#             */
+/*   Updated: 2023/06/07 11:31:52 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
+#include "Zombie.hpp"
 
-/*Constructors(parametrized) and deconstructor*/
-HumanA::HumanA(std::string name, Weapon& weapon) : m_name(name), m_weapon(weapon)
+int main(void)
 {
+    Zombie  *zombies;
+    int     N;
+    int     i;
     
-}
-
-HumanA::~HumanA()
-{
-    
-}
-
-void    HumanA::attack()
-{
-    std::cout << this->m_name << " attackes with their " << this->m_weapon.getType() << std::endl;
+    i = 0;
+    N = 5;
+    zombies = zombieHorde(N, "zombie");
+    while (i < N)
+    {
+        zombies[i].announce();
+        i++;
+    }
+    delete[] zombies;
+    return (0);
 }
