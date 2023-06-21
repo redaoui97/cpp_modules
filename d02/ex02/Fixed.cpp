@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/20 02:17:03 by rnabil            #+#    #+#             */
-/*   Updated: 2023/06/21 17:11:59 by rnabil           ###   ########.fr       */
+/*   Created: 2023/06/21 17:23:06 by rnabil            #+#    #+#             */
+/*   Updated: 2023/06/21 17:59:37 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,97 @@ std::ostream& operator<<(std::ostream& ioput, Fixed const& num)
     ioput << num.toFloat();
     return (ioput);
 }
+
+bool    Fixed::operator>(const Fixed& param) const
+{
+    if (this->getRawBits() > param.getRawBits())
+        return (true);
+    else
+        return (false);
+           
+}
+
+bool    Fixed::operator<(const Fixed& param) const
+{
+    if (this->getRawBits() < param.getRawBits())
+        return (true);
+    else
+        return (false);
+}
+
+bool    Fixed::operator>=(const Fixed& param) const
+{
+    if (this->getRawBits() >= param.getRawBits())
+        return (true);
+    else
+        return(false);
+}
+
+bool    Fixed::operator<=(const Fixed& param) const
+{
+    if (this->getRawBits() <= param.getRawBits())
+        return (true);
+    else
+        return (false);
+}
+
+bool    Fixed::operator==(const Fixed& param) const
+{
+    if (this->getRawBits() == param.getRawBits())
+        return (true);
+    else
+        return (false);
+}
+
+bool    Fixed::operator!=(const Fixed& param) const
+{
+    if (this->getRawBits() != param.getRawBits())
+        return (true);
+    else
+        return (false);
+}
+
+Fixed   Fixed::operator+(const Fixed& param) const
+{
+    return Fixed((this->toFloat() + param.toFloat()));    
+}
+
+Fixed   Fixed::operator-(const Fixed& param) const
+{
+    return Fixed((this->toFloat() - param.toFloat()));    
+}
+
+Fixed   Fixed::operator/(const Fixed& param) const
+{
+    return Fixed((this->toFloat() / param.toFloat()));    
+}
+
+Fixed   Fixed::operator*(const Fixed& param) const
+{
+    return Fixed((this->toFloat() * param.toFloat()));    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*Destructors*/
 Fixed::~Fixed()

@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 01:46:07 by rnabil            #+#    #+#             */
-/*   Updated: 2023/06/20 02:16:16 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/06/21 13:14:16 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@
 class Fixed
 {
     private:
-        int m_fixedPoint;
+        int                 m_fixedPoint;
+        static const int    m_fractionalBits = 8;
+        
     public:
         Fixed();
         Fixed(const Fixed& copy);
