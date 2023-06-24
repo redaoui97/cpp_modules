@@ -17,36 +17,32 @@
 Fixed::Fixed()
 {
     this->m_fixedPoint = 0;
-    std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int param)
 {
     m_fixedPoint = param << m_fractionalBits;
-    std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float param)
 {
     m_fixedPoint = std::roundf(param * (1 << m_fractionalBits));
-    std::cout << "Float constructor called" <<std::endl; 
 }
 
 Fixed::Fixed(const Fixed& copy)
 {
-    std::cout << "Copy constructor called" << std::endl;
     this->m_fixedPoint = copy.getRawBits();
 }
 
 /*operators overload*/
 Fixed& Fixed::operator=(const Fixed& copy)
 {
-    std::cout << "Copy assignment operator called" << std::endl;
     if (this != &copy)
         this->m_fixedPoint = copy.getRawBits();
     return (*this);
 }
 
+/*comparison*/
 std::ostream& operator<<(std::ostream& ioput, Fixed const& num)
 {
     ioput << num.toFloat();
@@ -102,6 +98,7 @@ bool    Fixed::operator!=(const Fixed& param) const
         return (false);
 }
 
+/*arithmetic*/
 Fixed   Fixed::operator+(const Fixed& param) const
 {
     return Fixed((this->toFloat() + param.toFloat()));    
@@ -122,32 +119,72 @@ Fixed   Fixed::operator*(const Fixed& param) const
     return Fixed((this->toFloat() * param.toFloat()));    
 }
 
+/* post;pre encrement/decrement*/
+Fixed&   Fixed::operator++(void)
+{
+    ++(this->m_fixedPoint);
+    return (*this);
+}
 
+Fixed   Fixed::operator++(int)
+{
+    Fixed  tmp(*this);
 
+    (this->m_fixedPoint)++;
+    return (tmp);
+}
 
+Fixed&   Fixed::operator--(void)
+{
+    --(this->m_fixedPoint);
+    return (*this);
+}
 
+Fixed   Fixed::operator--(int)
+{
+    Fixed  tmp(*this);
 
+    (this->m_fixedPoint)--;
+    return (tmp);
+}
 
+/*comparison methods*/
+Fixed&   Fixed::min(Fixed& num1, Fixed& num2)
+{
+    if (num1.getRawBits() < num2.getRawBits())
+        return (num1);
+    else
+        return (num2);
+}
 
+const Fixed&   Fixed::min(const Fixed& num1, const Fixed& num2)
+{
+    if (num1.getRawBits() < num2.getRawBits())
+        return (num1);
+    else
+        return (num2);
+}
 
+Fixed&   Fixed::max(Fixed& num1, Fixed& num2)
+{
+    if (num1.getRawBits() > num2.getRawBits())
+        return (num1);
+    else
+        return (num2);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+const Fixed&   Fixed::max(const Fixed& num1, const Fixed& num2)
+{
+    if (num1.getRawBits() > num2.getRawBits())
+        return (num1);
+    else
+        return (num2);
+}
 
 /*Destructors*/
 Fixed::~Fixed()
 {
-    std::cout << "Destructor called" << std::endl;
+
 }
 
 /*methods*/
