@@ -6,29 +6,20 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 18:05:28 by rnabil            #+#    #+#             */
-/*   Updated: 2023/07/07 17:31:42 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/07/07 22:13:06 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main(void)
 {
-    ClapTrap    A("A");
-    ClapTrap    B("B");
-    int         i;
-    
-    /*In this scenario, A keeps attacking B, and B keeps repairing itself
-      until it runs out of energy points*/
-    i = 0;
-    while (i < DEFAULT_ENERGYPOINTS)
-    {
-        std::cout << std::endl << std::endl;
-        A.attack("B");
-        B.takeDamage(DEFAULT_ATTACKDAMAGE);
-        B.beRepaired(DEFAULT_ATTACKDAMAGE);
-        i++;
-    }
-    std::cout << std::endl << std::endl;
-    return (0);
+  ScavTrap  obj1;
+  ScavTrap  obj2("robot");
+  ScavTrap  obj3(obj2);    
+  
+  /*In this scenario, I'll just show how inherited methods,
+       and implicit methods are called*/
+  obj2.attack("robot2");
+  return (0);
 }

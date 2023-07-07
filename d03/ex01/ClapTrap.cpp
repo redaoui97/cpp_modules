@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:22:37 by rnabil            #+#    #+#             */
-/*   Updated: 2023/06/24 18:55:01 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/07/07 19:30:07 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ ClapTrap::ClapTrap()
     this->m_attackDamage = 0;
     this->m_energyPoints = 10;
     this->m_hitPoints    = 10;
-    std::cout << "Dafault constructor called" << std::endl;
+    std::cout << "Dafault constructor called  on ClapTrap" << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string name)
 {
-    std::cout << "Parametrized constructor called" << std::endl;
+    std::cout << "Parametrized constructor called  on ClapTrap" << std::endl;
     this->m_name = name;
     this->m_attackDamage = 0;
     this->m_energyPoints = 10;
@@ -32,7 +32,7 @@ ClapTrap::ClapTrap(const std::string name)
 
 ClapTrap::ClapTrap(const ClapTrap& copy)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "Copy constructor called  on ClapTrap" << std::endl;
     this->m_name = copy.m_name;
     this->m_hitPoints = copy.m_hitPoints;
     this->m_energyPoints = copy.m_energyPoints;
@@ -41,7 +41,7 @@ ClapTrap::ClapTrap(const ClapTrap& copy)
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "Destructor called on ClapTrap" << std::endl;
 }
 
 /*copy assignement operator*/

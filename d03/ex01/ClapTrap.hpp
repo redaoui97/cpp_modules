@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 15:54:06 by rnabil            #+#    #+#             */
-/*   Updated: 2023/06/24 18:21:16 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/07/07 22:11:23 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 class ClapTrap
 {
-    private:
+    protected:
         std::string m_name;
         int         m_hitPoints;
         int         m_energyPoints;
