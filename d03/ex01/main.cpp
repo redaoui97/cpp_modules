@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 18:05:28 by rnabil            #+#    #+#             */
-/*   Updated: 2023/06/24 18:55:47 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/07/07 17:31:42 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@ int main(void)
     i = 0;
     while (i < DEFAULT_ENERGYPOINTS)
     {
+        std::cout << std::endl << std::endl;
         A.attack("B");
         B.takeDamage(DEFAULT_ATTACKDAMAGE);
         B.beRepaired(DEFAULT_ATTACKDAMAGE);
-        std::cout << std::endl << std::endl;
         i++;
     }
+    std::cout << std::endl << std::endl;
     return (0);
 }

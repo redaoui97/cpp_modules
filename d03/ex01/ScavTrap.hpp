@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 18:59:54 by rnabil            #+#    #+#             */
-/*   Updated: 2023/06/24 19:00:47 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/07/07 17:20:30 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 # define SCAVTRAP_HPP
 
 #include <iostream>
+#include "ClapTrap.hpp"
 
-class ScavTrap
+class ScavTrap : public ClapTrap
 {
     private:
 
