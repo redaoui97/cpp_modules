@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 18:59:54 by rnabil            #+#    #+#             */
-/*   Updated: 2023/07/09 01:34:35 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/07/09 13:02:43 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ class ScavTrap : public ClapTrap
         ScavTrap(const std::string name);
         ScavTrap(const ScavTrap& copy);
         ~ScavTrap();
+        /*copy assignement operator*/
+        ScavTrap&   operator=(const ScavTrap& copy);
         /*public methods*/
         bool        isDead();
         void        attack(const std::string& target);

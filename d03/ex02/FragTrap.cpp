@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 01:29:53 by rnabil            #+#    #+#             */
-/*   Updated: 2023/07/09 01:42:24 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/07/09 13:04:33 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,20 @@ FragTrap::FragTrap(const FragTrap& copy) : ClapTrap(copy)
 FragTrap::~FragTrap()
 {
     std::cout << "Destructor caleld on FragTrap" << std::endl;
+}
+
+/*copy assignement operator*/
+FragTrap&   FragTrap::operator=(const FragTrap& copy)
+{
+    std::cout << "copy assignement operator called" << std::endl;
+    if (this != &copy)
+    {
+        this->m_name = copy.m_name;
+        this->m_hitPoints = copy.m_hitPoints;
+        this->m_energyPoints = copy.m_energyPoints;
+        this->m_attackDamage = copy.m_attackDamage;
+    }
+    return (*this);
 }
 
 /*public methods*/

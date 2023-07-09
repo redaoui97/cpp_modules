@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 18:59:33 by rnabil            #+#    #+#             */
-/*   Updated: 2023/07/09 01:46:54 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/07/09 13:06:29 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,20 @@ ScavTrap::ScavTrap(const ScavTrap& copy) : ClapTrap(copy)
 ScavTrap::~ScavTrap()
 {
     std::cout << "Destructor called on ScavTrap" << std::endl;
+}
+
+/*copy assignement operator*/
+ScavTrap&   ScavTrap::operator=(const ScavTrap& copy)
+{
+    std::cout << "copy assignement operator called on ScavTrap" << std::endl;
+    if (this != &copy)
+    {
+        this->m_name = copy.m_name;
+        this->m_hitPoints = copy.m_hitPoints;
+        this->m_energyPoints = copy.m_energyPoints;
+        this->m_attackDamage = copy.m_attackDamage;
+    }
+    return (*this);
 }
 
 /*public methods*/

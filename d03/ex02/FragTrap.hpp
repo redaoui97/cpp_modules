@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 01:30:23 by rnabil            #+#    #+#             */
-/*   Updated: 2023/07/09 01:48:54 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/07/09 13:02:02 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ class FragTrap : public ClapTrap
         FragTrap(const std::string name);
         FragTrap(const FragTrap& copy);
         ~FragTrap();
+        /*copy assignement operator*/
+        FragTrap&   operator=(const FragTrap& copy);
         /*public methods*/
         bool        isDead();
         void        attack(const std::string& target);
