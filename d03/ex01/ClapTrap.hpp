@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 15:54:06 by rnabil            #+#    #+#             */
-/*   Updated: 2023/07/07 22:11:23 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/07/09 01:12:03 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 # define CLAPTRAP_HPP
 
 #include <iostream>
-
-#define DEFAULT_HITPOINTS 10
-#define DEFAULT_ENERGYPOINTS 10
-#define DEFAULT_ATTACKDAMAGE 0
 
 class ClapTrap
 {

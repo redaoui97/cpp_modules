@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:22:37 by rnabil            #+#    #+#             */
-/*   Updated: 2023/06/24 18:55:01 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/07/09 01:20:04 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ ClapTrap&   ClapTrap::operator=(const ClapTrap& copy)
 /*public methods*/
 void        ClapTrap::attack(const std::string& target)
 {
-    if (!this->m_energyPoints)
+    if (this->m_energyPoints <= 0)
         std::cout << this->m_name << " has no energy points to attack " << target << "!" << std::endl;
     else
     {
@@ -84,6 +84,8 @@ void        ClapTrap::beRepaired(unsigned int amount)
 {
     if (!this->m_energyPoints)
         std::cout << this->m_name << " has ran out of energy points and cannot be repaired!" << std::endl;
+    else if (this->m_hitPoints <= 0)
+        std::cout << this->m_name << " is dead and cannot be repaired!" << std::endl;
     else
     {
         this->m_hitPoints += amount;
