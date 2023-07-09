@@ -6,26 +6,17 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 18:59:54 by rnabil            #+#    #+#             */
-/*   Updated: 2023/07/09 01:47:08 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/07/09 01:34:35 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCAVTRAP_HPP
 # define SCAVTRAP_HPP
 
-#include <iostream>
 #include "ClapTrap.hpp"
-
-#define DEFAULT_ENERGYPOINTS 50
-#define DEFAULT_ATTACKDAMAGE 20
-#define DEFAULT_ACTION_COST  1
-#define DEFAULT_REPAIR       10
-#define DEFAULT_HITPOINTS    100
 
 class ScavTrap : public ClapTrap
 {
-    private:
-
     public:
         /*constructors; destructors*/
         ScavTrap();

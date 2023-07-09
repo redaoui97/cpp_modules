@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/24 18:59:54 by rnabil            #+#    #+#             */
-/*   Updated: 2023/07/09 01:47:08 by rnabil           ###   ########.fr       */
+/*   Created: 2023/06/24 15:54:06 by rnabil            #+#    #+#             */
+/*   Updated: 2023/07/09 01:12:03 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 #include <iostream>
-#include "ClapTrap.hpp"
 
-#define DEFAULT_ENERGYPOINTS 50
-#define DEFAULT_ATTACKDAMAGE 20
-#define DEFAULT_ACTION_COST  1
-#define DEFAULT_REPAIR       10
-#define DEFAULT_HITPOINTS    100
-
-class ScavTrap : public ClapTrap
+class ClapTrap
 {
-    private:
-
+    protected:
+        std::string m_name;
+        int         m_hitPoints;
+        int         m_energyPoints;
+        int         m_attackDamage;
+        
     public:
         /*constructors; destructors*/
-        ScavTrap();
-        ScavTrap(const std::string name);
-        ScavTrap(const ScavTrap& copy);
-        ~ScavTrap();
+        ClapTrap();
+        ClapTrap(const std::string name);
+        ClapTrap(const ClapTrap& copy);
+        ~ClapTrap();
+        /*copy assignement operator*/
+        ClapTrap&   operator=(const ClapTrap& copy);
         /*public methods*/
-        bool        isDead();
         void        attack(const std::string& target);
-        void        guardGate();
+        void        takeDamage(unsigned int amount);
+        void        beRepaired(unsigned int amount);
 };
 #endif
+

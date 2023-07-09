@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:22:37 by rnabil            #+#    #+#             */
-/*   Updated: 2023/07/09 01:20:04 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/07/09 01:51:55 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void        ClapTrap::takeDamage(unsigned int amount)
     else
     {
         this->m_hitPoints -= amount;
-        std::cout << this->m_name << " has taken " << amount << " damage, and now has " << this->m_hitPoints << " hit points left!" << std::endl;   
+        std::cout << this->m_name << " has taken " << amount << " damage, and now has " << (this->m_hitPoints >= 0 ? this->m_hitPoints : 0) << " hit points left!" << std::endl;   
     }
 }
 void        ClapTrap::beRepaired(unsigned int amount)
