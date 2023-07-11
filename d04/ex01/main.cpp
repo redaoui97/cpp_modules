@@ -6,36 +6,40 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 13:49:15 by rnabil            #+#    #+#             */
-/*   Updated: 2023/07/09 16:32:56 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/07/12 00:09:37 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "WrongCat.hpp"
+#include <cstdlib>
+
+static void generateAnimals(Animal **AnimalArray)
+{
+    int i = 0;
+
+    while (i < 20)
+    {
+        std::cout << "Animal number : " << i + 1 << std::endl;
+        std::cout << "------------------------------" << std::endl << std::endl;
+        i % 2 ? (AnimalArray[i] = new Cat, i++) : (AnimalArray[i] = new Dog, i++);
+    }
+}
+
+static void deleteAnimals(Animal **AnimalArray)
+{
+    int i = 0;
+
+    while (i < 20)
+        delete AnimalArray[i++];
+}
 
 int main()
 {
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    const WrongAnimal* k = new WrongCat(); 
+    Animal  *AnimalArray[20];
     
-    std::cout << std::endl;
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    std::cout << k->getType() << " " << std::endl;
-    
-    std::cout << std::endl;
-    meta->makeSound();
-    i->makeSound();
-    j->makeSound();
-    k->makeSound();
-    
-    std::cout << std::endl;
-    delete meta;
-    delete j;
-    delete i;
-    delete k;
+    generateAnimals(AnimalArray);
+    deleteAnimals(AnimalArray);
     return 0;
 }

@@ -6,16 +6,16 @@
 #    By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/09 13:11:25 by rnabil            #+#    #+#              #
-#    Updated: 2023/07/09 16:36:03 by rnabil           ###   ########.fr        #
+#    Updated: 2023/07/11 23:38:10 by rnabil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= Animals
+NAME	= Brains
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 HEADER	= $(wildcard *.hpp)
 
-MAIN	= main Animal Cat Dog WrongAnimal WrongCat
+MAIN	= main Animal Cat Dog WrongAnimal WrongCat Brain
 SRC		= $(MAIN:=.cpp)
 OBJ		= $(MAIN:=.o)
 
