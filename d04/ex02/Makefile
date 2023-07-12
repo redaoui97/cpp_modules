@@ -6,11 +6,11 @@
 #    By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/09 13:11:25 by rnabil            #+#    #+#              #
-#    Updated: 2023/07/12 12:03:42 by rnabil           ###   ########.fr        #
+#    Updated: 2023/07/12 12:03:30 by rnabil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= Brains
+NAME	= Abstract
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 HEADER	= $(wildcard *.hpp)

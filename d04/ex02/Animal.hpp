@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/09 16:16:21 by rnabil            #+#    #+#             */
-/*   Updated: 2023/07/09 16:21:56 by rnabil           ###   ########.fr       */
+/*   Created: 2023/07/09 14:02:37 by rnabil            #+#    #+#             */
+/*   Updated: 2023/07/12 12:07:06 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
 #include <iostream>
 
-class WrongAnimal
+class Animal
 {
     protected:
         std::string m_type;
-    public:
         /*constructors*/
-        WrongAnimal();
-        WrongAnimal(const std::string type);
-        WrongAnimal(const WrongAnimal& copy);
+        Animal();
+        Animal(const std::string type);
+        Animal(const Animal& copy);
         /*assignement operator*/
-        WrongAnimal& operator=(const WrongAnimal& copy);
+        Animal& operator=(const Animal& copy);
         /*destructor*/
-        virtual ~WrongAnimal();
+        virtual ~Animal();
         /*methods*/
         std::string     getType(void) const;
-        void    makeSound(void) const;
+        virtual void    makeSound(void) const;
 };
+
 #endif

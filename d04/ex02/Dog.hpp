@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/09 15:57:18 by rnabil            #+#    #+#             */
-/*   Updated: 2023/07/09 16:31:26 by rnabil           ###   ########.fr       */
+/*   Created: 2023/07/09 15:03:34 by rnabil            #+#    #+#             */
+/*   Updated: 2023/07/11 17:03:56 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-# define WRONGCAT_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
-#include <iostream>
-#include "WrongAnimal.hpp"
+# include "Animal.hpp"
+# include "Brain.hpp"
 
-class WrongCat : public WrongAnimal
+class Dog : public Animal
 {
-    protected:
-        std::string m_type;
-    public:
-        /*constructors*/
-        WrongCat();
-        WrongCat(const std::string type);
-        WrongCat(const WrongCat& copy);
+    private:
+        Brain *m_brain;
+        
+    public :
+        Dog();
+        Dog(std::string type);
+        Dog(const Dog& copy);
         /*assignement operator*/
-        WrongCat& operator=(const WrongCat& copy);
+        Dog& operator=(const Dog& copy);
         /*destructor*/
-        virtual ~WrongCat();
+        ~Dog();
         /*methods*/
-        std::string     getType(void) const;
-        virtual void    makeSound(void) const;
+        void    makeSound(void) const;
 };
 
 #endif
