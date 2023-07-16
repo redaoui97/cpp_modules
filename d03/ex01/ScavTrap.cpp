@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 18:59:33 by rnabil            #+#    #+#             */
-/*   Updated: 2023/07/09 13:06:29 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/07/15 17:03:39 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,11 @@ bool    ScavTrap::isDead()
 void        ScavTrap::attack(const std::string& target)
 {
     if (!this->m_energyPoints)
-        std::cout << this->m_name << " has no energy points to attack " << target << "!" << std::endl;
+        std::cout << "ScavTrap " << this->m_name << " has no energy points to attack " << target << "!" << std::endl;
     else
     {
         this->m_energyPoints--;
-        std::cout << "ClapTrap " << this->m_name << " has attacked, " << target << " causing " << this->m_attackDamage << " points of damage!" << std::endl;
+        std::cout << "ScavTrap " << this->m_name << " has attacked, " << target << " causing " << this->m_attackDamage << " points of damage!" << std::endl;
     }
 }
 
