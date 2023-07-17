@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 14:02:37 by rnabil            #+#    #+#             */
-/*   Updated: 2023/07/09 15:53:53 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/07/17 14:53:09 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class Animal
 {
     protected:
         std::string m_type;
+        
     public:
         /*constructors*/
         Animal();

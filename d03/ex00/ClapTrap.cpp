@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:22:37 by rnabil            #+#    #+#             */
-/*   Updated: 2023/07/09 01:51:55 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/07/17 06:10:41 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ ClapTrap&   ClapTrap::operator=(const ClapTrap& copy)
 void        ClapTrap::attack(const std::string& target)
 {
     if (this->m_energyPoints <= 0)
-        std::cout << this->m_name << " has no energy points to attack " << target << "!" << std::endl;
+        std::cout << "ClapTrap " << this->m_name << " has no energy points to attack " << target << "!" << std::endl;
     else
     {
         this->m_energyPoints--;

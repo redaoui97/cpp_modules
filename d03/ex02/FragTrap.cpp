@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 01:29:53 by rnabil            #+#    #+#             */
-/*   Updated: 2023/07/09 13:04:33 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/07/17 06:17:22 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,5 @@ void        FragTrap::attack(const std::string& target)
 
 void    FragTrap::highFivesGuys(void)
 {
-    std::cout << this->m_name << " wants to high five!" << std::cout;
+    std::cout << this->m_name << " wants to high five!" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 14:02:37 by rnabil            #+#    #+#             */
-/*   Updated: 2023/07/12 12:07:06 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/07/17 15:31:02 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class Animal
 {
     protected:
         std::string m_type;
+    public:
         /*constructors*/
         Animal();
         Animal(const std::string type);
@@ -29,7 +30,7 @@ class Animal
         virtual ~Animal();
         /*methods*/
         std::string     getType(void) const;
-        virtual void    makeSound(void) const;
+        virtual void    makeSound(void) const = 0;
 };
 
 #endif
