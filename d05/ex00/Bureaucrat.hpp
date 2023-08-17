@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 18:26:53 by rnabil            #+#    #+#             */
-/*   Updated: 2023/08/16 08:26:03 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/08/17 15:11:25 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,23 @@
 class Bureaucrat
 {
     private :
-        std::string const name;
-        int               grade;
+        std::string const m_name;
+        int               m_grade;
+        
     public:
         /*constructors*/
         Bureaucrat();
-        Bureaucrat(const std::string name);
+        Bureaucrat(const std::string name, int grade);
         Bureaucrat(const Bureaucrat& copy);
         /*assignement*/
         Bureaucrat& operator = (const Bureaucrat& copy);
         /*destructor*/
         ~Bureaucrat();
         /*methods*/
+        std::string     getName();
+        int             getGrade();
+        void            incremenetGrade();
+        void            decrementGrade();
 };
 #endif
-//getters for getName() getGrade()
-//2 member functions to increment/decrement the grade (if the input is out of range throw an exception as in the constructor)
 //overload of the insertion <<
