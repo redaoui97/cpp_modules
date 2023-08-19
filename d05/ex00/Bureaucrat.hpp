@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 18:26:53 by rnabil            #+#    #+#             */
-/*   Updated: 2023/08/19 22:57:34 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/08/19 23:11:55 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,8 @@ class Bureaucrat
                 };
         };
 };
+
+//overloading << operator
+std::ostream&   operator <<(std::ostream& os, const Bureaucrat& copy);
+
 #endif
-//overload of the insertion <<
