@@ -1,3 +1,7 @@
-Exceptions:
+---Exceptions:
 Exceptions are a way to transfer control and information from some point of the execution of 
 a program to a handler associated with a point previously passed by the execution.
++types of exceptions: 
+-standard exceptions
+-standard library exceptions
+-custom exceptions
