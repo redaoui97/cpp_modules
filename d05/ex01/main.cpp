@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 18:27:58 by rnabil            #+#    #+#             */
-/*   Updated: 2023/08/20 16:04:17 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/08/20 20:00:19 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int main(void)
     Bureaucrat A("A",5);
     Bureaucrat B("B",1);
     Bureaucrat C("C",150);
+    //exception throwing case
     Bureaucrat D("D",151);
     Bureaucrat E("E",-1);
-
     
     //getName and getGrade methods
     std::cout << std::endl << A.getName() << " : " << A.getGrade() << std::endl;

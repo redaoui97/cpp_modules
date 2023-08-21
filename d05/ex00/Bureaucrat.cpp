@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 08:29:01 by rnabil            #+#    #+#             */
-/*   Updated: 2023/08/20 16:01:49 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/08/20 20:03:17 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,10 @@ Bureaucrat::Bureaucrat(std::string const name, int grade) : m_name(name)
     catch (const GradeTooHighException& e)
     {
         std::cerr << "High exception: " << e.what() << std::endl;
-        m_grade = 150;
     }
     catch (const GradeTooLowException& e)
     {
         std::cerr << "Low exception: " << e.what() << std::endl;
-        m_grade = 150;
     }
 }
 
@@ -54,37 +52,36 @@ Bureaucrat::Bureaucrat(const Bureaucrat& copy) : m_name(copy.m_name)
     catch (const GradeTooHighException& e)
     {
         std::cerr << "High exception: " << e.what() << std::endl;
-        m_grade = 150;
     }
     catch (const GradeTooLowException& e)
     {
         std::cerr << "Low exception: " << e.what() << std::endl;
-        m_grade = 150;
     }
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& copy)
 {
-    try
+    if (this != &copy)
     {
-        if (copy.m_grade < 1)
-            throw Bureaucrat::GradeTooLowException();
-        else if (copy.m_grade > 150)
-            throw Bureaucrat::GradeTooHighException();
-        else
+        try
         {
-            this->m_grade = copy.m_grade;
+            if (copy.m_grade < 1)
+                throw Bureaucrat::GradeTooLowException();
+            else if (copy.m_grade > 150)
+                throw Bureaucrat::GradeTooHighException();
+            else
+            {
+                this->m_grade = copy.m_grade;
+            }
         }
-    }
-    catch (const GradeTooHighException& e)
-    {
-        std::cerr << "High exception: " << e.what() << std::endl;
-        m_grade = 150;
-    }
-    catch (const GradeTooLowException& e)
-    {
-        std::cerr << "Low exception: " << e.what() << std::endl;
-        m_grade = 150;
+        catch (const GradeTooHighException& e)
+        {
+            std::cerr << "High exception: " << e.what() << std::endl;
+        }
+        catch (const GradeTooLowException& e)
+        {
+            std::cerr << "Low exception: " << e.what() << std::endl;
+        }
     }
     return (*this);
 }
