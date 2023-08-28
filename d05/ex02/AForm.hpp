@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/20 16:53:10 by rnabil            #+#    #+#             */
-/*   Updated: 2023/08/24 05:59:13 by rnabil           ###   ########.fr       */
+/*   Created: 2023/08/24 23:15:16 by rnabil            #+#    #+#             */
+/*   Updated: 2023/08/27 18:43:28 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 #include <iostream>
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
-class   Form
+class   AForm
 {
     private:
         std::string const m_name;
@@ -28,19 +28,20 @@ class   Form
         
     public:
         /*constructors*/
-        Form();
-        Form(const std::string name, int gradeExecute, int gradeSign);
-        Form(const Form& copy);
+        AForm();
+        AForm(const std::string name, int gradeExecute, int gradeSign);
+        AForm(const AForm& copy);
         /*assignement*/
-        Form& operator=(const Form& copy);
+        virtual AForm&          operator=(const AForm& copy);
         /*destructor*/
-        ~Form();
+        virtual                 ~AForm();
         /*methods*/
-        void            beSigned(Bureaucrat bcrat);
-        std::string     getName() const;
-        bool            isSigned() const;
-        int             getSignGrade() const;
-        int             getExecGrade() const;
+        virtual void            beSigned(Bureaucrat bcrat);
+        virtual std::string     getName() const;
+        virtual bool            isSigned() const;
+        virtual int             getSignGrade() const;
+        virtual int             getExecGrade() const;
+        virtual void            execute(const Bureaucrat& executor) const = 0;
         /*nested custom exceptions*/
         class GradeTooHighException : public std::exception
         {
@@ -58,9 +59,17 @@ class   Form
                     return "Grade is too low!";
                 };
         };
+        class GradeNotSigned : public std::exception
+        {
+            public:
+                const char* what() const throw()
+                {
+                    return "Grade is not signed!";
+                };
+        };
 };
 
 //overloading << operator
-std::ostream&   operator <<(std::ostream& os, const Form& frm);
+std::ostream&   operator <<(std::ostream& os, const AForm& frm);
 
 #endif

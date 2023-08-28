@@ -1,9 +1,9 @@
-NAME	= Form_alteration
+NAME	= ScalarTypes
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 HEADER	= $(wildcard *.hpp)
 
-MAIN	= main Bureaucrat AForm PresidentialPardonForm RobotomyRequestForm ShrubberyCreationForm
+MAIN	= main ScalarConverter
 
 SRC		= $(MAIN:=.cpp)
 OBJ		= $(MAIN:=.o)

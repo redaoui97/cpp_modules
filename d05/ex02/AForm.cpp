@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/20 17:51:37 by rnabil            #+#    #+#             */
-/*   Updated: 2023/08/24 06:08:52 by rnabil           ###   ########.fr       */
+/*   Created: 2023/08/24 23:15:07 by rnabil            #+#    #+#             */
+/*   Updated: 2023/08/27 17:37:10 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
 
-Form::~Form()
+#include "AForm.hpp"
+
+AForm::AForm() : m_name("default"), m_requiredGradeExecute(150), m_requiredGradeSign(150)
+{
+    
+}
+AForm::~AForm()
 {
     
 }
 
-Form::Form(const std::string name, int gradeExecute, int gradeSign) : m_name(name), m_requiredGradeExecute(gradeExecute), m_requiredGradeSign(gradeSign)
+AForm::AForm(const std::string name, int gradeExecute, int gradeSign) : m_name(name), m_requiredGradeExecute(gradeExecute), m_requiredGradeSign(gradeSign)
 {
     try
     {
         if (gradeSign < 1 || gradeExecute < 1)
-            throw Form::GradeTooLowException();
+            throw AForm::GradeTooLowException();
         else if (gradeSign > 150 || gradeExecute > 150)
-            throw Form::GradeTooHighException();
+            throw AForm::GradeTooHighException();
     }
     catch (const GradeTooHighException& e)
     {
@@ -37,12 +42,12 @@ Form::Form(const std::string name, int gradeExecute, int gradeSign) : m_name(nam
     this->m_signed = 0;
 }
 
-Form::Form(const Form& copy) : m_name(copy.m_name), m_signed(copy.m_signed), m_requiredGradeExecute(copy.m_requiredGradeExecute), m_requiredGradeSign(copy.m_requiredGradeSign)
+AForm::AForm(const AForm& copy) : m_name(copy.m_name), m_signed(copy.m_signed), m_requiredGradeExecute(copy.m_requiredGradeExecute), m_requiredGradeSign(copy.m_requiredGradeSign)
 {
 
 }
 
-Form& Form::operator=(const Form& copy)
+AForm& AForm::operator=(const AForm& copy)
 {
     if (&copy != this)
     {
@@ -51,12 +56,12 @@ Form& Form::operator=(const Form& copy)
     return (*this);
 }
 
-void    Form::beSigned(Bureaucrat bcrat)
+void    AForm::beSigned(Bureaucrat bcrat)
 {
     try
     {
         if (bcrat.getGrade() > m_requiredGradeSign)
-            throw Form::GradeTooLowException();
+            throw AForm::GradeTooLowException();
         else
             m_signed = 1;
     }
@@ -66,27 +71,27 @@ void    Form::beSigned(Bureaucrat bcrat)
     }  
 }
 
-bool    Form::isSigned() const
+bool    AForm::isSigned() const
 {
     return (m_signed);    
 }
 
-std::string     Form::getName() const
+std::string     AForm::getName() const
 {
     return (m_name);  
 }
 
-int             Form::getSignGrade() const
+int             AForm::getSignGrade() const
 {
     return (m_requiredGradeSign);    
 }
 
-int             Form::getExecGrade() const
+int             AForm::getExecGrade() const
 {
     return (m_requiredGradeExecute);   
 }
 
-std::ostream&   operator<<(std::ostream& os, const Form& frm)
+std::ostream&   operator<<(std::ostream& os, const AForm& frm)
 {
     os << frm.getName() << (frm.isSigned()?" is signed":" isn't signed") << ", required grade to sign: " << frm.getSignGrade() << ", required grade to execute: " << frm.getExecGrade();
     return (os);

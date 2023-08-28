@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 08:29:01 by rnabil            #+#    #+#             */
-/*   Updated: 2023/08/20 20:03:17 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/08/28 02:01:21 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ Bureaucrat::Bureaucrat(std::string const name, int grade) : m_name(name)
 {
     try
     {
-        if (grade < 1)
+        if (grade > 150)
             throw Bureaucrat::GradeTooLowException();
-        else if (grade > 150)
+        else if (grade < 1)
             throw Bureaucrat::GradeTooHighException();
         else
             m_grade = grade;
@@ -42,9 +42,9 @@ Bureaucrat::Bureaucrat(const Bureaucrat& copy) : m_name(copy.m_name)
 {
     try
     {
-        if (copy.m_grade < 1)
+        if (copy.m_grade > 150)
             throw Bureaucrat::GradeTooLowException();
-        else if (copy.m_grade > 150)
+        else if (copy.m_grade < 1)
             throw Bureaucrat::GradeTooHighException();
         else
             this->m_grade = copy.m_grade;
@@ -65,9 +65,9 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& copy)
     {
         try
         {
-            if (copy.m_grade < 1)
+            if (copy.m_grade > 150)
                 throw Bureaucrat::GradeTooLowException();
-            else if (copy.m_grade > 150)
+            else if (copy.m_grade < 1)
                 throw Bureaucrat::GradeTooHighException();
             else
             {

@@ -1,9 +1,9 @@
-NAME	= Form_alteration
+NAME	= interns
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 HEADER	= $(wildcard *.hpp)
 
-MAIN	= main Bureaucrat AForm PresidentialPardonForm RobotomyRequestForm ShrubberyCreationForm
+MAIN	= main Bureaucrat AForm PresidentialPardonForm RobotomyRequestForm ShrubberyCreationForm intern
 
 SRC		= $(MAIN:=.cpp)
 OBJ		= $(MAIN:=.o)
