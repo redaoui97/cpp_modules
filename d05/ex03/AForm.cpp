@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 23:15:07 by rnabil            #+#    #+#             */
-/*   Updated: 2023/08/27 17:37:10 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/08/28 09:08:17 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ AForm::AForm(const std::string name, int gradeExecute, int gradeSign) : m_name(n
 {
     try
     {
-        if (gradeSign < 1 || gradeExecute < 1)
+        if (gradeSign > 150 || gradeExecute > 150)
             throw AForm::GradeTooLowException();
-        else if (gradeSign > 150 || gradeExecute > 150)
+        else if (gradeSign < 1 || gradeExecute < 1)
             throw AForm::GradeTooHighException();
     }
     catch (const GradeTooHighException& e)

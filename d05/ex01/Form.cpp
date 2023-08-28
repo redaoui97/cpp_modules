@@ -6,13 +6,13 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 17:51:37 by rnabil            #+#    #+#             */
-/*   Updated: 2023/08/24 06:08:52 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/08/28 09:12:38 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::~Form()
+Form::Form() : m_signed(0), m_requiredGradeExecute(150), m_requiredGradeSign(150)
 {
     
 }
@@ -21,9 +21,9 @@ Form::Form(const std::string name, int gradeExecute, int gradeSign) : m_name(nam
 {
     try
     {
-        if (gradeSign < 1 || gradeExecute < 1)
+        if (gradeSign > 150 || gradeExecute > 150)
             throw Form::GradeTooLowException();
-        else if (gradeSign > 150 || gradeExecute > 150)
+        else if (gradeSign < 1 || gradeExecute < 1)
             throw Form::GradeTooHighException();
     }
     catch (const GradeTooHighException& e)
@@ -49,6 +49,11 @@ Form& Form::operator=(const Form& copy)
         this->m_signed = copy.m_signed;
     }
     return (*this);
+}
+
+Form::~Form()
+{
+    
 }
 
 void    Form::beSigned(Bureaucrat bcrat)

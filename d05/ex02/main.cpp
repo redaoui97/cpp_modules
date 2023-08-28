@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 23:07:33 by rnabil            #+#    #+#             */
-/*   Updated: 2023/08/27 18:53:49 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/08/28 09:35:23 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(void)
     Bureaucrat B1("Bur1", 4);
     Bureaucrat B2("Bur2", 148);
     AForm *Form1 = new ShrubberyCreationForm("Form1");
-    AForm *Form1B = new ShrubberyCreationForm("Form1");
+    AForm *Form1B = new PresidentialPardonForm("Form1B");
     AForm *Form2 = new RobotomyRequestForm("Form2");
     AForm *Form3 = new PresidentialPardonForm("Form3");
     
