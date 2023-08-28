@@ -1,0 +1,14 @@
+Casting in cpp:
+1-Static cast
+2-Dynamic cast
+3-Const cast
+4-Reinterpret cast
+
+1-static cast: Compile time cast, implicitly converts types
+    e.g int a = 42;
+        double b = static_cast<double>(a);
+    -Could be used for : 
+        -numeric conversions;
+        -enum conversions;
+        -Pointer and reference conversions (for related classes)
+        -Pointer to void pointer conversions
