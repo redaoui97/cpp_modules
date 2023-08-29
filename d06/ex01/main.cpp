@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/27 23:47:28 by rnabil            #+#    #+#             */
-/*   Updated: 2023/08/29 20:59:18 by rnabil           ###   ########.fr       */
+/*   Created: 2023/08/29 22:46:57 by rnabil            #+#    #+#             */
+/*   Updated: 2023/08/29 22:54:50 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERTER_HPP
-# define SCALARCONVERTER_HPP
+#include "Serializer.hpp"
 
-#include <iostream>
-#include <sstream>
-#include <string>
-#include <cfloat>
-
-class ScalarConverter
+int main(void)
 {
-    public:
-        static void Convert(std::string input);
-};
+    Data user;
+    
+    user.id   = 0;
+    user.name = "reda";
 
-void    toChar(std::string input);
-void    toInt(std::string input);
-void    toFloat(std::string input);
-void    toDouble(std::string input);
-#endif
+    std::cout << user.id << " : " << user.name << std::endl;
+    std::cout << Serializer::serialize(&user) << std::endl;
+    return (0);
+}

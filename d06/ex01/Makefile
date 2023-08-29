@@ -1,9 +1,9 @@
-NAME	= convert
+NAME	= Serialization
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 HEADER	= $(wildcard *.hpp)
 
-MAIN	= main ScalarConverter
+MAIN	= main Serializer
 
 SRC		= $(MAIN:=.cpp)
 OBJ		= $(MAIN:=.o)

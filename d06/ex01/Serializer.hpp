@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/27 23:47:28 by rnabil            #+#    #+#             */
-/*   Updated: 2023/08/29 20:59:18 by rnabil           ###   ########.fr       */
+/*   Created: 2023/08/29 20:58:23 by rnabil            #+#    #+#             */
+/*   Updated: 2023/08/29 22:26:13 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERTER_HPP
-# define SCALARCONVERTER_HPP
+#ifndef SERIALIZER_HPP
+# define SERIALIZER_HPP
 
 #include <iostream>
-#include <sstream>
-#include <string>
-#include <cfloat>
 
-class ScalarConverter
+typedef struct s_data
+{
+    std::string name;
+    int         id;
+}              Data;
+
+class Serializer
 {
     public:
-        static void Convert(std::string input);
+        static uintptr_t serialize(Data* ptr);
+        static Data* deserialize(uintptr_t raw);
 };
 
-void    toChar(std::string input);
-void    toInt(std::string input);
-void    toFloat(std::string input);
-void    toDouble(std::string input);
 #endif
