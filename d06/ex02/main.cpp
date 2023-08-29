@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/29 20:58:23 by rnabil            #+#    #+#             */
-/*   Updated: 2023/08/29 22:57:03 by rnabil           ###   ########.fr       */
+/*   Created: 2023/08/29 23:07:21 by rnabil            #+#    #+#             */
+/*   Updated: 2023/08/29 23:51:29 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_HPP
-# define SERIALIZER_HPP
+#include "RealType.hpp"
 
-#include <iostream>
-
-typedef struct s_data
+int main(void)
 {
-    int         id;
-    std::string name;
-}              Data;
-
-class Serializer
-{
-    public:
-        static uintptr_t serialize(Data* ptr);
-        static Data* deserialize(uintptr_t raw);
-};
-
-#endif
+    Base* ptr;
+    Base& a = new A();
+    
+    ptr = generate();
+    identify(ptr);
+    
+    delete ptr;
+    free a;
+    return (0);
+}
