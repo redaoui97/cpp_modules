@@ -1,0 +1,5 @@
+Templates are a concept that lets us run a function for different data types without the need to write a seperate function for each data type.
+Templates are expanded at compiler time like macros: it expands it depending on the data type passed as argument.
+There can be more than one arguemnt passed to the template function
+We can specify the default value for a template arguemtn : template <class T, class U = char> class A ...
+Function templates can take 2 keywords as parameteres (class ; typename)
