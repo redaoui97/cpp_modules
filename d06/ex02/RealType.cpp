@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 23:07:57 by rnabil            #+#    #+#             */
-/*   Updated: 2023/08/29 23:50:41 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/08/30 16:18:50 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void identify(Base& p)
     try
     {
         Base& test1 = dynamic_cast<A&>(p);
+        (void)test1;
         std::cout << "The class is A" << std::endl;     
     }
     catch(std::exception& e)
@@ -62,6 +63,7 @@ void identify(Base& p)
     try
     {
         Base& test2 = dynamic_cast<B&>(p);
+        (void)test2;
         std::cout << "The class is B" << std::endl;     
     }
     catch(std::exception& e)
@@ -71,6 +73,7 @@ void identify(Base& p)
     try
     {
         Base& test3 = dynamic_cast<C&>(p);
+        (void)test3;
         std::cout << "The class is C" << std::endl;     
     }
     catch(std::exception& e)
