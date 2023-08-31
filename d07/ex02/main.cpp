@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 22:24:22 by rnabil            #+#    #+#             */
-/*   Updated: 2023/08/30 23:50:17 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/08/31 16:19:11 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "Array.hpp"
 
 #define MAX_VAL 750
+
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);

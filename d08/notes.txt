@@ -1,0 +1,19 @@
+Containers:
+-Container are data structures that store and manage collections of objects.
+-They are part of the STL (Standard Template Library)
+-They are divided into 2 categories: Sequence containers & Associative containers
+-Category 1: Sequence containers: maintain the order of the elements as they are inserted.
+	-vector: dynamic array
+	-deque : doubly-ended queue
+	-list  : doubly-linked list
+	-forward list : singly-linked list 
+-Category 2: Associative containers: store elements in a sorted order depending on keys :
+	-set: stores a collection of unique keys in a sorted order.
+	-map: stores a key-value pairs in a sorted order.
+	-unordered_set: stores unique keys in a hash table for fast access
+	-unordered_map: stores key_value pairs in a hash table for fast access
+
+Iterators:
+
+Algorithms: set of the most useful algorithms:
+-Sort: 
