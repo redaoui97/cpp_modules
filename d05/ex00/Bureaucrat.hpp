@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 18:26:53 by rnabil            #+#    #+#             */
-/*   Updated: 2023/08/20 19:57:28 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/09/03 04:01:49 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ class Bureaucrat
         int              getGrade() const;
         void             incremenetGrade();
         void             decrementGrade();
-        /*nested custom exception class*/
-        class GradeTooHighException : public std::exception
+        /*nested custom exception class*/ 
+        class GradeTooHighException : public std::exception 
         {
             public:
                 const char* what() const throw()
