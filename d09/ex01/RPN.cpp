@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 07:23:37 by rnabil            #+#    #+#             */
-/*   Updated: 2023/09/04 09:10:12 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/09/04 22:51:50 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ static std::string removeSpaces(std::string input)
             res += input[i];
         }
     }
-
     return res;
 }
 
@@ -61,10 +60,11 @@ RPN::RPN(std::string params)
     std::string args;
     std::string nums = "123456789";
     std::string opers = "*/-+";
-    int         res = -1;
+    float       lvalue;
+    float         rvalue;
+    float         result;
     int         first_iter = 1;
-    int         second_iter;
-    
+        
     args = removeSpaces(params);
     if (checkArgs(args) == 1)
         throw std::runtime_error("error");
@@ -72,49 +72,33 @@ RPN::RPN(std::string params)
     {
         if (nums.find(args[i]) != std::string::npos)
         {
-            if (first_iter)
-            {
-                res = toInt(std::string("")+args[i]);
-                first_iter = 0;
-            }
-            else
-            {
-                //if number push it into the stack
-                m_values.push(toInt(std::string("")+args[i]));
-            }
+            //if number push it into the stack
+            m_values.push(toInt(std::string("")+args[i]));
         }
         else
         {
             if (m_values.empty())
                 throw std::runtime_error("error");
-            if (first_iter == 1 && res == -1)
+            if (first_iter == 1 && (nums.find(m_values.top()) != std::string::npos))
                 throw std::runtime_error("error");
-            second_iter = 1;
-            while (!m_values.empty())
+            if (m_values.size() >= 2)
             {
-                /*
-                            Some shit here is broken
-                                            
-                */
-                //std::cout << m_values.size() << " did operation " << args[i] << " on " << res << " and " << m_values.top() << std::endl;
-                // if (second_iter == 1)
-                // {
-                //     res = m_values.top();
-                //     m_values.pop();
-                //     second_iter = 0;
-                //     continue ;
-                // }
-                if (args[i] == '+')
-                    res += m_values.top();
-                else if (args[i] == '-')
-                    res -= m_values.top();
-                else if (args[i] == '*')
-                    res *= m_values.top();
-                else if (args[i] == '/')
-                    res /= m_values.top();
+                rvalue = m_values.top();
                 m_values.pop();
+                lvalue = m_values.top();
+                m_values.pop();
+                if (args[i] == '+')
+                    result = lvalue + rvalue;
+                else if (args[i] == '-')
+                    result = lvalue - rvalue;
+                else if (args[i] == '*')
+                    result = lvalue * rvalue;
+                else if (args[i] == '/')
+                    result = lvalue / rvalue;
             }
-            m_values.push(res);
+            else
+                throw std::runtime_error("error");
+            m_values.push(result);
             //if operator pop from stack, calculate then push back into the stack
         }
     }

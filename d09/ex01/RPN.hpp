@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 07:23:07 by rnabil            #+#    #+#             */
-/*   Updated: 2023/09/04 08:21:48 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/09/04 22:41:55 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class RPN
 {
     private:
-        std::stack<int> m_values;
+        std::stack<float> m_values;
             
     public:
         RPN();
