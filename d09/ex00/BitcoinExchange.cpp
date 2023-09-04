@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 06:11:53 by rnabil            #+#    #+#             */
-/*   Updated: 2023/09/04 07:15:00 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/09/04 08:01:11 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ BitcoinExchange::BitcoinExchange()
     
 }
 
+//check if the data.csv file is present and store it's content in m_data
+//check that file exists and ends with .txt
+//check file header is valid
+//accepts empty lines
+//accepts spaces in between date; values
 BitcoinExchange::BitcoinExchange(std::string input)
 {
     std::string errorMessage;
     
-    //check if the data.csv file is present and store it's content in m_data
     if (setData() == 1)
         throw std::runtime_error("data.csv is unreachable!");
-    //check that file exists and ends with .txt
-    //check file header is valid
-    //accepts empty lines
-    //accepts spaces in between date; values
     errorMessage =  parseInput(input);
     if (!errorMessage.empty())
         throw std::runtime_error(errorMessage);
