@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 23:07:17 by rnabil            #+#    #+#             */
-/*   Updated: 2023/09/05 09:52:12 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/09/05 10:07:47 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,17 @@ PmergeMe::PmergeMe(char **args, int num) : m_threshold(5)
     Start = clock();
     sortVector(m_vectorContainer, 0, m_vectorContainer.size() - 1);
     Finish = clock();
-    sortTimeVector = (double(Start - Finish) / CLOCKS_PER_SEC) * 1000000;
+    sortTimeVector = Finish - Start;
     
     
     //start timer for deque
     Start = clock();
     sortDeque(m_dequeContainer, 0, m_dequeContainer.size() - 1);
     Finish = clock();
-    sortTimeDeque = (double(Start - Finish) / CLOCKS_PER_SEC) * 1000000;
+    sortTimeDeque = Finish - Start;
     
     std::cout << "After : ";
     printVector();
-    
     std::cout << "Time to process a range of " << m_vectorContainer.size() << " elements with std::vector : " << sortTimeVector << " us" << std::endl;
     std::cout << "Time to process a range of " << m_dequeContainer.size() << " elements with std::deque : " << sortTimeDeque << " us" << std::endl; 
      
