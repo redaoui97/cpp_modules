@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 07:23:37 by rnabil            #+#    #+#             */
-/*   Updated: 2023/09/04 22:51:50 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/09/05 06:57:43 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ RPN::RPN(std::string params)
     std::string nums = "123456789";
     std::string opers = "*/-+";
     float       lvalue;
-    float         rvalue;
-    float         result;
+    float       rvalue;
+    float       result;
     int         first_iter = 1;
         
     args = removeSpaces(params);
